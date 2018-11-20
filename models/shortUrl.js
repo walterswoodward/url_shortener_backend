@@ -1,6 +1,4 @@
-// template/structure/model of document for shortURL
 const mongoose = require('mongoose');
-// No need to create a primary key because mongoose does it automatically!
 const Schema = mongoose.Schema;
 
 const urlSchema = new Schema({
