@@ -19,6 +19,8 @@ const uuidv4 = require("uuid/v4");
 // server.use(cors(corsOptions));
 
 server.use(cors());
+console.log(process.env.MONGODB_URI)
+console.log(process.env.PORT)
 
 // Connect to database:
 mongoose.connect(
