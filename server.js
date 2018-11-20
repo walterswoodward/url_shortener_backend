@@ -7,7 +7,9 @@ require("dotenv").config();
 const validateURL = require("./libraries/regex-weburl.js");
 const uuidv4 = require("uuid/v4");
 server.use(express.json());
-
+console.log(process.env.MONGODB_URI)
+console.log(process.env.MONGO_URI)
+console.log(process.env.PORT)
 // CORS - OPTIONS, to fix "No 'Access-Control-Allow-Origin' header" issue
 // const corsOptions = {
 //   origin: '*',
@@ -19,8 +21,6 @@ server.use(express.json());
 // server.use(cors(corsOptions));
 
 server.use(cors());
-console.log(process.env.MONGODB_URI)
-console.log(process.env.PORT)
 
 // Connect to database:
 mongoose.connect(
