@@ -8,7 +8,7 @@ const validateURL = require("./libraries/regex-weburl.js");
 const uuidv4 = require("uuid/v4");
 
 
-server.use(express.json());
+// server.use(express.json());
 
 // CORS - OPTIONS, to fix "No 'Access-Control-Allow-Origin' header" issue
 const corsOptions = {
