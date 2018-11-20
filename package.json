@@ -4,9 +4,11 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "prod": "NODE_ENV=production node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+    },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/walterswoodward/url_shortener_backend.git"
