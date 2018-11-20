@@ -23,8 +23,7 @@ server.use(cors());
 mongoose.connect(
   process.env.MONGODB_URI,
   { useNewUrlParser: true }
-).then(() => console.log('\n===connected to mongo===\n'))
-.catch(err =>console.log('not connected'))
+)
 
 // Allows node to find static content e.g. index.html
 // server.use(express.static(__dirname + "/public"));
