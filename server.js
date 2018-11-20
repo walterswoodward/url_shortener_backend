@@ -6,19 +6,19 @@ const shortUrl = require("./models/shortUrl");
 require("dotenv").config();
 const validateURL = require("./libraries/regex-weburl.js");
 const uuidv4 = require("uuid/v4");
-
-
 // server.use(express.json());
 
 // CORS - OPTIONS, to fix "No 'Access-Control-Allow-Origin' header" issue
-const corsOptions = {
-  origin: '*',
-  methods: 'GET, HEAD, PUT, PATCH, POST, DELETE',
-  preflightContinue: false,
-  optionsSuccessStatus: 204
-};
+// const corsOptions = {
+//   origin: '*',
+//   methods: 'GET, HEAD, PUT, PATCH, POST, DELETE',
+//   preflightContinue: false,
+//   optionsSuccessStatus: 204
+// };
 
-server.use(cors(corsOptions));
+// server.use(cors(corsOptions));
+
+server.use(cors());
 
 // Connect to database:
 mongoose.connect(
