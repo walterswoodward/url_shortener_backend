@@ -59,9 +59,9 @@ server.get("/new/:urlToShorten", (req, res) => {
   }
 });
 
-// server.get('/', (req, res)=>{
-//   res.json({api: "shortURL server up and running"})
-// })
+server.get('/', (req, res)=>{
+  res.json({api: "shortURL server up and running"})
+})
 
 // Query database and forward to originalURL:
 server.get('/:urlToForward', (req,res)=>{
