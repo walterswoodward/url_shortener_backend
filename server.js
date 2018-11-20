@@ -36,7 +36,7 @@ server.get("/new/:urlToShorten(*)", (req, res) => {
   const urlToShorten = req.params.urlToShorten;
   if (validateURL.test(urlToShorten)) {
     const randStr = uuidv4() + ""
-    const short = randStr.slice(0,10)
+    const short = randStr.slice(0,5)
     let data = new shortUrl(
       {
         originalUrl: urlToShorten,
