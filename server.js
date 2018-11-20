@@ -3,7 +3,7 @@ const server = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
 const shortUrl = require("./models/shortUrl");
-require("dotenv").config();
+// require("dotenv").config();
 const validateURL = require("./libraries/regex-weburl.js");
 const uuidv4 = require("uuid/v4");
 server.use(express.json());
