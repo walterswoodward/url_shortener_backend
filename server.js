@@ -70,7 +70,10 @@ const shorterUrl = req.params.urlToForward;
 shortUrl.findOne({'shortUrl': shorterUrl}, (err, data)=>{
   if(err){
     res.send(err);
+  } else {
+    res.redirect(301, data.originalUrl)
   }
+
 })
 })
 
