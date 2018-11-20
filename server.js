@@ -30,7 +30,7 @@ mongoose.connect(
 
 // Creates the database entry
 // note*: The parens with asterisk is necessary - avoids issue of interp as folder directory
-server.get("/new/:urlToShorten(*)", (req, res, next) => {
+server.get("/new/:urlToShorten", (req, res) => {
   var urlToShorten = req.params.urlToShorten;
   if (validateURL.test(urlToShorten)) {
     const randStr = uuidv4() + ""
@@ -62,7 +62,7 @@ server.get('/', (req, res)=>{
 })
 
 // Query database and forward to originalURL:
-server.get('/:urlToForward', (req,res,next)=>{
+server.get('/:urlToForward', (req,res)=>{
   // store value of urlToForward
 var shorterUrl = req.params.urlToForward;
 shortUrl.findOne({'shortUrl': shorterUrl}, (err, data)=>{
