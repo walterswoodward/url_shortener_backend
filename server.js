@@ -6,7 +6,6 @@ const shortUrl = require("./models/shortUrl");
 // require("dotenv").config();
 const validateURL = require("./libraries/regex-weburl.js");
 const uuidv4 = require("uuid/v4");
-const PORT = process.env.PORT
 server.use(express.json());
 // CORS - OPTIONS, to fix "No 'Access-Control-Allow-Origin' header" issue
 // const corsOptions = {
@@ -26,10 +25,7 @@ mongoose.connect(
   { useNewUrlParser: true }
 )
 
-// Listen to see if everything is working
-server.listen(PORT || 5000, function(){
-  
-});
+
 
 // Allows node to find static content e.g. index.html
 // server.use(express.static(__dirname + "/public"));
@@ -49,7 +45,7 @@ server.get("/new/:urlToShorten", (req, res) => {
     )
     data.save(err=>{
       if(err){
-        res.json("There was an error while saving data")
+        res.json(err)
       }
     })
     res.json(data);
@@ -73,7 +69,7 @@ server.get('/:urlToForward', (req,res)=>{
 var shorterUrl = req.params.urlToForward;
 shortUrl.findOne({'shortUrl': shorterUrl}, (err, data)=>{
   if(err){
-    res.send('Error reading database');
+    res.send(err);
   } else {
     res.redirect(301, data.originalUrl)
   }
@@ -82,3 +78,7 @@ shortUrl.findOne({'shortUrl': shorterUrl}, (err, data)=>{
 })
 
 
+// Listen to see if everything is working
+server.listen(process.env.PORT || 5000, function(){
+  
+});
