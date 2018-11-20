@@ -30,7 +30,6 @@ mongoose.connect(
 
 
 
-server.use(cors());
 
 
 
@@ -80,6 +79,9 @@ shortUrl.findOne({'shortUrl': shorterUrl}, (err, data)=>{
 
 })
 })
+
+
+server.use(cors());
 
 // Listen to see if everything is working
 server.listen(process.env.PORT, () => {
