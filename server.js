@@ -68,6 +68,6 @@ shortUrl.findOne({'shortUrl': shorterUrl}, (err, data)=>{
 })
 
 // Listen to see if everything is working
-server.listen(process.env.port || 5000, () => {
+server.listen(process.env.PORT || 5000, () => {
   
 });
