@@ -77,6 +77,6 @@ shortUrl.findOne({'shortUrl': shorterUrl}, (err, data)=>{
 })
 
 // Listen to see if everything is working
-server.listen(PORT || 5000, function() {
+server.listen(PORT || 5000, function(){
   
 });
