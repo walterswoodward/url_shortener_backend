@@ -3,13 +3,10 @@ const server = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
 const shortUrl = require("./models/shortUrl");
-require("dotenv").config();
+// require("dotenv").config();
 const validateURL = require("./libraries/regex-weburl.js");
 const uuidv4 = require("uuid/v4");
-
 server.use(express.json());
-
-
 // CORS - OPTIONS, to fix "No 'Access-Control-Allow-Origin' header" issue
 // const corsOptions = {
 //   origin: '*',
@@ -20,18 +17,17 @@ server.use(express.json());
 
 // server.use(cors(corsOptions));
 
-
+server.use(cors());
 
 // Connect to database:
 mongoose.connect(
   process.env.MONGODB_URI,
   { useNewUrlParser: true }
-)
+).then(() => console.log('\n===connected to mongo===\n'))
+.catch(err =>console.log('not connected'))
 
-
-
-
-
+// Allows node to find static content e.g. index.html
+// server.use(express.static(__dirname + "/public"));
 
 // Creates the database entry
 // note*: The parens with asterisk is necessary - avoids issue of interp as folder directory
@@ -80,10 +76,7 @@ shortUrl.findOne({'shortUrl': shorterUrl}, (err, data)=>{
 })
 })
 
-
-server.use(cors());
-
 // Listen to see if everything is working
-server.listen(process.env.PORT, () => {
+server.listen(process.env.PORT || 5000, () => {
   
 });
