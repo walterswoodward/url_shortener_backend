@@ -7,8 +7,18 @@ require("dotenv").config();
 const validateURL = require("./libraries/regex-weburl.js");
 const uuidv4 = require("uuid/v4");
 
+
+server.use(express.json());
 // Tell our express app to use the packages that we need:
 server.use(cors());
+// CORS - OPTIONS, to fix "No 'Access-Control-Allow-Origin' header" issue
+
+const corsOptions = {
+  origin: '*',
+  methods: 'GET, HEAD, PUT, PATCH, POST, DELETE',
+  preflightContinue: false,
+  optionsSuccessStatus: 204
+};
 
 // Connect to database:
 mongoose.connect(
