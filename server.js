@@ -12,7 +12,7 @@ server.use(cors());
 
 // Connect to database:
 mongoose.connect(
-  process.env.MONGO_URI,
+  process.env.MONGODB_URI,
   { useNewUrlParser: true }
 ).then(() => console.log('\n===connected to mongo===\n'))
 .catch(err =>console.log('not connected'))
