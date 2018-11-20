@@ -69,8 +69,9 @@ server.get('/:urlToForward', (req,res)=>{
 const shorterUrl = req.params.urlToForward;
 shortUrl.findOne({'shortUrl': shorterUrl}, (err, data)=>{
   if(err){
-    res.send(err);
-  } else {
+    done(err);
+    // This is what is causing the H13/H10 but not sure how to fix yet
+  } else if (data){
     res.redirect(301, data.originalUrl)
   }
 
