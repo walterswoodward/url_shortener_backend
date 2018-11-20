@@ -26,6 +26,11 @@ mongoose.connect(
   { useNewUrlParser: true }
 )
 
+// Listen to see if everything is working
+server.listen(PORT || 5000, function(){
+  
+});
+
 // Allows node to find static content e.g. index.html
 // server.use(express.static(__dirname + "/public"));
 
@@ -76,7 +81,4 @@ shortUrl.findOne({'shortUrl': shorterUrl}, (err, data)=>{
 })
 })
 
-// Listen to see if everything is working
-server.listen(PORT || 5000, function(){
-  
-});
+
