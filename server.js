@@ -41,8 +41,7 @@ server.get("/new/:urlToShorten(*)", (req, res) => {
         originalUrl: urlToShorten,
         shortUrl: short
       }
-    )
-    data.save(err=>{
+    ).save(err=>{
       if(err){
         res.json(err)
       }
