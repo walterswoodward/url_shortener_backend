@@ -63,7 +63,7 @@ server.get('/', (req, res)=>{
 })
 
 // Query database and forward to originalURL:
-server.get('/:urlToForward', (req,res)=>{
+server.get('/:urlToForward', (req,res,done)=>{
   // store value of urlToForward
 const shorterUrl = req.params.urlToForward;
 shortUrl.findOne({'shortUrl': shorterUrl}, (err, data)=>{
