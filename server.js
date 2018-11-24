@@ -29,7 +29,8 @@ server.get("/new/:urlToShorten(*)", (req, res) => {
       }
     )
     data.save()
-    res.json(data);
+    .then(data => res.status(201).json({ data }))
+    .catch(error => res.status(500).json({ error }));
   } else {
     let data = new shortUrl(
       {
